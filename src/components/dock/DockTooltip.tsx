@@ -1,5 +1,5 @@
 import Tippy from '@tippyjs/react/headless';
-import { FC, useRef } from 'react';
+import { FC } from 'preact/compat';
 import styled from 'styled-components';
 import { sticky } from 'tippy.js';
 import { theme } from '__/theme';
@@ -16,6 +16,7 @@ export const DockTooltip: FC<IDockTooltip> = ({ label, children }) => {
       <Tippy
         render={() => <Box>{label}</Box>}
         trigger="focusin mouseenter"
+        appendTo={document.body}
         sticky
         plugins={[sticky]}
         delay={50}

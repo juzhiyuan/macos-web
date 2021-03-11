@@ -1,14 +1,13 @@
 import { mdiBluetooth, mdiKeyboard, mdiWifiStrength4 } from '@mdi/js';
 import { FC } from 'react';
-import styled from 'styled-components';
-import { css } from 'styled-components';
+import styled, { css } from 'styled-components';
 import { AirDropSVG } from '__/assets/sf-icons/AirDrop.svg';
 import { MoonSVG } from '__/assets/sf-icons/Moon.svg';
 import { AppIcon } from '__/components/utils/AppIcon';
 import { ButtonBase } from '__/components/utils/ButtonBase';
 import { useTheme } from '__/hooks/use-theme';
 import { theme } from '__/theme';
-import { MenuShell } from '../MenuShell';
+import { ActionCenterShell } from './ActionCenterShell';
 import { ACSlider } from './ACSlider';
 import { ActionCenterSurface } from './ActionCenterSurface';
 import { ActionCenterTile } from './ActionCenterTile';
@@ -21,7 +20,7 @@ export const ActionCenter: FC<{}> = ({}) => {
   const ThemeSVGComp = MoonSVG;
 
   return (
-    <MenuShell>
+    <ActionCenterShell>
       <Container>
         {/* Main Controls: Wifi, Bluetooth, Airdrop */}
         <ActionCenterSurface
@@ -112,7 +111,7 @@ export const ActionCenter: FC<{}> = ({}) => {
           />
         </ActionCenterSurface>
       </Container>
-    </MenuShell>
+    </ActionCenterShell>
   );
 };
 

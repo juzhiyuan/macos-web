@@ -65,20 +65,20 @@ const initialState = createDockConfig({
       icon: pathById('system-preferences'),
       isOpen: false,
     },
+
     purusTwitter: {
       appName: `My Twitter`,
       icon: pathById('purus-twitter'),
-      isOpen: false,
+      isOpen: true,
       breakBefore: true,
       action: () => {
         window.open('https://twitter.com/puruvjdev', '_blank');
       },
     },
-
     viewSource: {
       appName: 'View Source',
       icon: pathById('github'),
-      isOpen: false,
+      isOpen: true,
       action: () => {
         window.open('https://github.com/puruvj/macos-web', '_blank');
       },
@@ -86,6 +86,4 @@ const initialState = createDockConfig({
   },
 });
 
-const dockItemsStore = atom(initialState);
-
-export { dockItemsStore };
+export const dockItemsStore = atom(initialState);

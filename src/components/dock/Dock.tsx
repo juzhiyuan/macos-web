@@ -9,7 +9,7 @@ import { DockItem } from './DockItem';
 /**
  * The famous MacOS Dock
  */
-const Dock = ({}) => {
+export const Dock = ({}) => {
   const [{ dockItems }] = useAtom(dockItemsStore);
 
   const mouseX = useMotionValue<number | null>(null);
@@ -41,7 +41,7 @@ const DockContainer = styled.section`
   z-index: 9900;
 
   width: 100%;
-  height: 5rem;
+  height: 5.2rem;
 
   padding: 0.4rem;
 
@@ -74,5 +74,3 @@ const Divider = styled.div`
 
   margin: 0 2px;
 `;
-
-export { Dock };
