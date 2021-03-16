@@ -17,11 +17,13 @@ export const WindowsArea = () => {
 
   return (
     <Container>
-      {Object.keys(appsConfig).map(
-        (appID) =>
-          openApps[appID] &&
-          appsConfig[appID].shouldOpenWindow && <Window key={appID} appID={appID} />,
-      )}
+      {Object.keys(appsConfig).map((appID) => (
+        <Window
+          shouldRender={openApps[appID] && appsConfig[appID].shouldOpenWindow}
+          key={appID}
+          appID={appID}
+        />
+      ))}
     </Container>
   );
 };

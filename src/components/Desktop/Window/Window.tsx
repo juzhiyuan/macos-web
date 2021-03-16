@@ -2,6 +2,7 @@ import { useAtom } from 'jotai';
 import { useEffect, useMemo, useState } from 'preact/compat';
 import { Rnd } from 'react-rnd';
 import styled from 'styled-components';
+import { PlaceholderApp } from '__/components/apps/Placeholder/Placeholder';
 import { appsConfig } from '__/data/apps/apps-config';
 import { randint } from '__/helpers/utils';
 import { activeAppStore, activeAppZIndexStore, AppID } from '__/stores/apps.store';
@@ -10,24 +11,28 @@ import { TrafficLights } from './TrafficLights';
 
 type WindowProps = {
   appID: AppID;
+  shouldRender: boolean;
 };
 
-export const Window = ({ appID }: WindowProps) => {
+export const Window = ({ appID, shouldRender }: WindowProps) => {
   const [activeAppZIndex] = useAtom(activeAppZIndexStore);
   const [activeApp, setActiveApp] = useAtom(activeAppStore);
 
   const [appZIndex, setAppZIndex] = useState(0);
 
-  const { Component, resizable } = appsConfig[appID];
+  const { resizable } = appsConfig[appID];
 
   const randY = useMemo(() => randint(-100, 100), []);
   const randX = useMemo(() => randint(-600, 600), []);
 
+  // Change current z-index as the max zIndex
   useEffect(() => {
     if (activeApp === appID) setAppZIndex(activeAppZIndex);
   }, [activeApp]);
 
   const setFocusOnCurrentApp = () => void setActiveApp(appID);
+
+  if (!shouldRender) return <></>;
 
   return (
     <Rnd
@@ -46,13 +51,15 @@ export const Window = ({ appID }: WindowProps) => {
       onDragStart={setFocusOnCurrentApp}
     >
       <Container tabIndex={-1} onClick={setFocusOnCurrentApp}>
-        <div>
+        <section>
           <TitleBar className="app-window-drag-handle">
             <TrafficLights appID={appID} />
           </TitleBar>
           <Divider />
-        </div>
-        <Component />
+        </section>
+        <>
+          <PlaceholderApp />
+        </>
       </Container>
     </Rnd>
   );

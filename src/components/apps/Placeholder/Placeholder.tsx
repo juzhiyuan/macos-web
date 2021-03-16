@@ -16,7 +16,7 @@ export const PlaceholderApp = () => {
         draggable={false}
         src="/assets/app-icons/finder/256.png"
       />
-      <h1>Apps coming soon!</h1>
+      <h1>Apps coming soon!!</h1>
     </Container>
   );
 };
