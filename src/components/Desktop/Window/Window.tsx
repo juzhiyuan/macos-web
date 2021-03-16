@@ -32,8 +32,6 @@ export const Window = ({ appID, shouldRender }: WindowProps) => {
 
   const setFocusOnCurrentApp = () => void setActiveApp(appID);
 
-  if (!shouldRender) return <></>;
-
   return (
     <Rnd
       style={{ zIndex: appZIndex }}

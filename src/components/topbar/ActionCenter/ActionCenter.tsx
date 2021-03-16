@@ -33,7 +33,7 @@ export const ActionCenter = () => {
             <Toggle filled={!0}>
               <AppIcon path={mdiWifiStrength4} size={16} />
             </Toggle>
-            Wi-Fi
+            Wi-fi
           </ActionCenterTile>
 
           {/* Bluetooth */}

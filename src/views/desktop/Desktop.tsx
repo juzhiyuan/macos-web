@@ -1,6 +1,7 @@
 import { useEffect } from 'preact/hooks';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Reset } from 'styled-reset';
+import { PlaceholderApp } from '__/components/apps/Placeholder/Placeholder';
 import { StartupChime } from '__/components/Desktop/StartupChime';
 import { WindowsArea } from '__/components/Desktop/WindowsArea/WindowsArea';
 import { Dock } from '__/components/dock/Dock';
@@ -29,6 +30,7 @@ export const Desktop = () => {
       <Main>
         <TopBar />
         <WindowsArea />
+        <PlaceholderApp />
         <Dock />
       </Main>
 
